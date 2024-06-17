@@ -3,8 +3,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import random, asyncio, pytz, os
 from datetime import datetime
 
-# AMir | https://t.me/disculpas
-# opened in ! { @Sourrce_kade } !
+
 target, muute, game, type, list_fosh, status_time_bio, bio, status_time_name = [], [], ["off"], ["off"], ["کصمادرت", "کصننت", "ننه جنده", "کصمامانت تو ماهیتابه"], ['off'], ["bye bye 🤫🧏"], ['off']
 api_id = 9266589 #your api id 
 api_hash = 'f78f09d45be03b07a498636ebb774d08'#your api hash
@@ -32,7 +31,7 @@ async def onphoto(client, message) :
             rand = random.randint(1000, 9999999) 
             local = f"downloads/photo-{rand}.png"
             await app.download_media(message.photo.file_id, file_name=f"photo-{rand}.png")
-            await app.send_photo("1502490631", photo=local, caption=f"`🥸 New timed image {message.photo.date} | time : {message.photo.ttl_seconds}s`")
+            await app.send_photo("me", photo=local, caption=f"`🥸 New timed image {message.photo.date} | time : {message.photo.ttl_seconds}s`")
             os.remove(local)
     except :
         pass
