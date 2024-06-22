@@ -3,7 +3,6 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import random, asyncio, pytz, os
 from datetime import datetime
 
-
 target, muute, game, type, list_fosh, status_time_bio, bio, status_time_name = [], [], ["off"], ["off"], ["کصمادرت", "کصننت", "ننه جنده", "کصمامانت تو ماهیتابه"], ['off'], ["bye bye 🤫🧏"], ['off']
 api_id = 9266589 #your api id 
 api_hash = 'f78f09d45be03b07a498636ebb774d08'#your api hash
@@ -561,6 +560,35 @@ async def delete_list_mute(client, message):
     await asyncio.sleep(25)
     await app.delete_messages(chat_id, msg_id, revoke=True)
 
+
+@app.on_message(filters.me & filters.regex('(?i)^راهنما$'))
+async def help(client, message):
+    msg_id = message.id
+    chat_id = message.chat.id
+    help = """
+راهنمای سلف 
+
+`وضعیت`
+
+`پنل دشمن`
+
+`پنل گروه`
+
+`پنل بازی`
+
+`پنل پروفایل`
+
+
+`سفارش`
+
+نویسنده سلف
+@La_shy
+"""
+    await app.edit_message_text(chat_id, msg_id, help)
+    await asyncio.sleep(60)
+    await app.delete_messages(chat_id, msg_id, revoke=True)
+
+
 @app.on_message(filters.me & filters.regex('(?i)^.help$'))
 async def help(client, message):
     msg_id = message.id
@@ -579,6 +607,8 @@ async def help(client, message):
 `.profilepanel`
 
 `.order`
+
+
 """
     await app.edit_message_text(chat_id, msg_id, help)
     await asyncio.sleep(60)
@@ -624,6 +654,48 @@ async def helpenemy(client, message):
     await app.edit_message_text(chat_id, msg_id, help)
     await asyncio.sleep(60)
     await app.delete_messages(chat_id, msg_id, revoke=True)
+    
+@app.on_message(filters.me & filters.regex('(?i)^پنل دشمن$'))
+async def helpenemy(client, message):
+    msg_id = message.id
+    chat_id = message.chat.id
+    help = """
+**Atakeri self panel enemy**
+
+`.enemy` -> (ریپلای روی کاربر)
+تنظیم کاربر به عنوان دشمن
+
+`.friend` -> (ریپلای روی کاربر)
+حذف کاربر از لیست دشمنان
+
+`.addenemy` -> (ریپلای روی پیام آیدی عددی)
+تنظیم کاربر به عنوان دشمن
+
+`.delenemy` -> (ریپلای روی پیام آیدی عددی)
+حذف کاربر از لیست دشمنان
+
+`.enemylist`
+دیدن لیست دشمنان
+
+`.cleanenemylist`
+پاکسازی لیست دشمنان
+
+`.addf` -> (ریپلای روی پیام فحش)
+افزودن فحش به لیست
+
+`.delf` -> (ریپلای روی پیام فحش)
+حذف فحش از لیست
+
+`.flist`
+دیدن لیست فحش ها
+
+`.cleanflist`
+پاکسازی لیست فحش ها
+"""
+    await app.edit_message_text(chat_id, msg_id, help)
+    await asyncio.sleep(60)
+    await app.delete_messages(chat_id, msg_id, revoke=True)
+
 
 @app.on_message(filters.me & filters.regex('(?i)^.grouppanel$'))
 async def helpgroup(client, message):
@@ -662,6 +734,45 @@ async def helpgroup(client, message):
     await app.edit_message_text(chat_id, msg_id, help)
     await asyncio.sleep(60)
     await app.delete_messages(chat_id, msg_id, revoke=True)
+    
+@app.on_message(filters.me & filters.regex('(?i)^پنل گروه$'))
+async def helpgroup(client, message):
+    msg_id = message.id
+    chat_id = message.chat.id
+    help = """
+**Atakeri self panel group**
+
+`.mute` -> (ریپلای روی کاربر)
+سکوت کردن کاربر
+
+`.unmute` -> (ریپلای روی کاربر)
+حذف کاربر از لیست سکوت
+
+`.addmute` -> (ریپلای روی پیام آیدی عددی)
+افزودن کاربر به لیست سکوت
+
+`.delmute` -> (ریپلای روی پیام آیدی عددی)
+حذف کاربر از لیست سکوت
+
+`.mutelist`
+دیدن لیست کاربران سکوت شده
+
+`.cleanmutelist`
+پاکسازی لیست کاربران سکوت شده
+
+`.ban` -> (ریپلای روی کاربر)
+بن کردن کاربر
+
+`.unban` -> (ریپلای روی کاربر)
+حذف کاربر از لیست بن
+
+`.info`
+دریافت اطلاعات گروه
+"""
+    await app.edit_message_text(chat_id, msg_id, help)
+    await asyncio.sleep(60)
+    await app.delete_messages(chat_id, msg_id, revoke=True)    
+    
 @app.on_message(filters.me & filters.regex('(?i)^.entertainmentpanel$'))
 async def help(client, message):
     msg_id = message.id
@@ -684,6 +795,30 @@ async def help(client, message):
     await app.edit_message_text(chat_id, msg_id, help)
     await asyncio.sleep(60)
     await app.delete_messages(chat_id, msg_id, revoke=True)
+    
+    
+@app.on_message(filters.me & filters.regex('(?i)^پنل سرگرمی$'))
+async def help(client, message):
+    msg_id = message.id
+    chat_id = message.chat.id
+    help = """
+**Atakeri self panel entertainment **
+
+`قلب`
+
+`کص مادرت`
+
+`جق بزن`
+
+`هعی`
+
+`Hack`
+
+`Load`
+"""
+    await app.edit_message_text(chat_id, msg_id, help)
+    await asyncio.sleep(60)
+    await app.delete_messages(chat_id, msg_id, revoke=True)    
 
 @app.on_message(filters.me & filters.regex('(?i)^.profilepanel$'))
 async def helptool(client, message):
@@ -714,6 +849,36 @@ async def helptool(client, message):
     await app.edit_message_text(chat_id, msg_id, help)
     await asyncio.sleep(60)
     await app.delete_messages(chat_id, msg_id, revoke=True)
+    
+@app.on_message(filters.me & filters.regex('(?i)^پنل پروفایل$'))
+async def helptool(client, message):
+    msg_id = message.id
+    chat_id = message.chat.id
+    help = """
+**Atakeri self panel profile **
+
+`.timename on|off`
+روشن|خاموش کردن نمایش زمان در اسم
+
+`.timebio on|off`
+روشن|خاموش کردن نمایش زمان د بیو
+
+نکته : سر دقیقه ( به محض تغییر دقیقه ساعت) از دستورات بالا استفاده کنید تا تایم بیو یا اسم جلو عقب نمونه.
+
+
+
+`.setbio` -> (ریپلای روی پیام بیو)
+تنظیم بیو
+
+`.typeing on|off`
+روشن|خاموش کردن حالت تایپینگ 
+
+`.gameing on|off`
+روشن|خاموش کردن حالت گیم
+"""
+    await app.edit_message_text(chat_id, msg_id, help)
+    await asyncio.sleep(60)
+    await app.delete_messages(chat_id, msg_id, revoke=True)    
 
 @app.on_message(filters.me & filters.regex('(?i)^.order$'))
 async def order(client, message):
@@ -740,6 +905,33 @@ async def order(client, message):
     await app.edit_message_text(chat_id, msg_id, help)
     await asyncio.sleep(60)
     await app.delete_messages(chat_id, msg_id, revoke=True)
+    
+    
+@app.on_message(filters.me & filters.regex('(?i)^سفارش$'))
+async def order(client, message):
+    msg_id = message.id
+    chat_id = message.chat.id
+    help = """
+**Atakeri self panel order**
+
+`.bot`
+مشاهده آنلاین بودن سلف
+
+`.data` -> (ریپلای روی پیام کاربر) 
+دریافت تمام اطلاعات پیام
+
+`.id` -> (ریپلای روی پیام کاربر) 
+دریافت اطلاعات کاربر در پیوی یا گروه
+
+`.save` -> (ریپلای روی پیام کاربر) 
+سیو متن،مدیا،استیکر،گیف،ویس و... در سیو مسیج
+
+
+**ربات به سیو خودکار فیلم و عکس تایمردار مجهز است.**
+"""
+    await app.edit_message_text(chat_id, msg_id, help)
+    await asyncio.sleep(60)
+    await app.delete_messages(chat_id, msg_id, revoke=True)    
    
 @app.on_message(filters.me & filters.regex('(?i)^.data$'))
 async def data(client, message):
